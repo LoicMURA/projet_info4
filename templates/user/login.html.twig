@@ -1,0 +1,11 @@
+{% extends 'base.html.twig '%}
+
+{% block title %}{{ parent() }} | Connexion{% endblock %}
+
+{% block body %}
+    <main class="mx-auto w-75">
+        <h2>Se connecter</h2>
+        {% include 'user/_login.html.twig' %}
+        <p>Vous n'êtes pas encore membre ? <a href="{{ path('user_new') }}">Je m'inscrit</a></p>
+    </main>
+{% endblock %}

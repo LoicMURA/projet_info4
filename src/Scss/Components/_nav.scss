@@ -1,0 +1,110 @@
+.nav {
+    $height: 5rem;
+    $third: calc(#{$height / 3});
+
+    min-height: $height;
+
+    &__link {
+        color: $grey;
+        line-height: $height;
+        text-decoration: none;
+        font-weight: 400;
+        margin-left: 1rem;
+        font-size: 1.25rem;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 1.25rem;
+            left: 0;
+            width: 0;
+            height: .1rem;
+            border-radius: 2px;
+            background-color: $grey;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            -o-border-radius: 2px;
+            transition: all .3s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            -ms-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+
+        &--user {
+            color: $blue;
+        }
+
+        &--user::before {
+            background-color: $blue;
+        }
+
+        &--shop {
+            &:hover {
+                color: $blue;
+            }
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &__out {
+        line-height: $third;
+
+        &::before {
+            bottom: -.35rem;
+        }
+    }
+
+    &__separator {
+        width: 1px;
+        height: $third;
+        background-color: $grey;
+        opacity: .5;
+        margin: 0 1rem 0 2rem;
+    }
+
+    &__user {
+        color: $grey;
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 0 0 0 1rem;
+
+        &--container {
+            height: $height;
+            line-height: $third;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__shopCount {
+        position: absolute;
+        top: 1rem;
+        left: .75rem;
+        color: $white;
+        background-color: $blue;
+        width: 1.5rem;
+        height: 1.5rem;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: .75rem;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+        z-index: -1;
+}
+}

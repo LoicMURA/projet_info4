@@ -1,0 +1,8 @@
+<footer class="footer d-flex justify-content-center">
+    <a class="footer__link" href="{{ path('legals') }}">Mentions Légales</a>
+    <a class="footer__link" href="{{ path('cgv') }}">CGV</a>
+    <a class="footer__link" href="{{ path('contact') }}">Nous contacter</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}" class="footer__link">Panneau d'administration</a>
+    {% endif %}
+</footer>

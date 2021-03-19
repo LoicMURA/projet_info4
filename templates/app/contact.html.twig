@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Nous contacter{% endblock %}
+
+{% block body %}
+    <main class="mx-auto w-75">
+        {% for message in  app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <h2>Nous contacter</h2>
+        {% include 'app/contactForm.html.twig' %}
+    </main>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/homepage.css") }}">
+{% endblock %}
+
+{% block body %}
+    <main class="hero">
+        <section class="banner">
+            <p class="banner__text">
+                A l'occasion de la journée internationale du Bonheur, Zyno lance une nouvelle collection, une collection unique de t-shirts
+                évoquant le bonheur avec grande élégance.
+            </p>
+            <h1 class="banner__title"><p>Zyno.</p></h1>
+            <p class="banner__text">D'un mot simple brodé sur le t-shirt, partagez le bonheur autour de vous !</p>
+        </section>
+        <section class="newsletter">
+            <img class="newsletter__logo" src="{{ asset("image/logo-zyno_black.png") }}" />
+            <form class="newsletter__form">
+                <p>Restez au courant des nouveautés de <span>"Zyno."</span> en vous inscrivant à
+                    notre newsletter</p>
+                <button><p>Inscrivez vous à la newsletter</p></button>
+            </form>
+        </section>
+        <section class="slider">
+            <img class="slider__slide" src="{{ asset("image/girl.png") }}" />
+            <p class="slider__text">Avec Zyno, portez le bonheur et diffusez le autour de vous !</p>
+        </section>
+        <section class="products">
+            <img class="products__pic" src="{{ asset("image/products.png") }}" />
+            <p class="products__text">
+                La simplicité et l'originalité de nos t-shirts vous démarqueront avec certitude! Ces derniers sont déclinés sous différentes
+                couleurs très gaies et très joyeuses ! Vous trouverez votre bonheur et vous le partagerez avec élégance et confort !
+            </p>
+        </section>
+    </main>
+{% endblock %}
+
+{% block script %}
+    <script>
+        let cursor = document.createElement("span");
+        cursor.classList = "cursor";
+        document.body.prepend(cursor);
+
+        document.querySelector(".banner").addEventListener("mouseenter", (e) => {
+            cursor.style.display = "block";
+        });
+
+        document.querySelector(".banner").addEventListener("mousemove", (e) => {
+            let x = e.pageX + cursor.style.width / 2;
+            let y = e.pageY + cursor.style.height / 2;
+
+            cursor.style.left = `${x}px`;
+            cursor.style.top = `${y}px`;
+        });
+
+        document.querySelector(".banner").addEventListener("mouseleave", (e) => {
+            cursor.style.display = "none";
+        });
+    </script>
+{% endblock %}

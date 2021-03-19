@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.presentation {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index:1;
+}
+
+.presentation::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  top: 0%;
+  left: 30%;
+  position: absolute;
+  background: black;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.presentation p {
+  z-index: 100;
+  background: white;
+  width: 60%;
+  padding: 2em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.presentation img {
+  width: 40%;
+}
+
+p {
+  font-family: 'Raleway';
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.bandeau {
+  margin-top: -1px;
+  display: block;
+  width: 100%;
+}
+
+.tshirts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5em 0;
+}
+
+.tshirts p {
+  font-family: 'Raleway';
+  font-size: 1.5em;
+  margin: 0 auto;
+  width: 30ch;
+  text-align: center;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.tshirts img {
+  width: 50%;
+  height: 100%;
+}
+
+.newsletter {
+  margin: 2em 5em;
+  outline: #000 1px solid;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newsletter img {
+  outline: 2px solid #000;
+  outline-offset: -0.75rem;
+  height: 100%;
+}
+
+.newsletter .inscription {
+  max-width: 50%;
+  margin: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.newsletter .inscription p {
+  padding: 0;
+}
+
+.newsletter a {
+  padding: 1em;
+  text-decoration: none;
+  border: 1px black solid;
+  font-weight: 300;
+  font-family: Raleway;
+  text-align: center;
+}
+
+.newsletter a:hover {
+  background: black;
+  color: white;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,26 @@
+{% import 'macro/form.html.twig' as appForm %}
+
+<form action="{{ path('user_login') }}" method="POST">
+    {% if error %}
+        <span class="invalid-feedback d-block">
+            <span class="d-block">
+                <span class="form-error-icon badge badge-danger text-uppercase">Erreur</span>
+                <span class="form-error-message">{{ error.messageKey|trans(error.messageData,
+                        'security')
+                    }}</span>
+            </span>
+        </span>
+    {% endif %}
+    <div class="form__field form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" name="_username" id="username" class="form-control"
+               placeholder="Votre nom d'utilisateur" value="{{ username }}">
+    </div>
+    <div class="form__field form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="_password" id="password" class="form-control"
+               placeholder="Votre mot de passe">
+    </div>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    {{ appForm.submit("Se connecter") }}
+</form>

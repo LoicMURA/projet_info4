@@ -1,0 +1,25 @@
+.article {
+    $margin: 1.5rem;
+    &__title {
+        margin-bottom: 1rem;
+    }
+    &__text {
+        max-width: 60ch;
+    }
+    &__image {
+        max-width: 50%;
+        height: auto;
+        &--left {
+            margin-left: unset;
+            margin-right: $margin;
+            max-width: 33%;
+        }
+        &--right {
+            margin-right: unset;
+            margin-left: $margin;
+        }
+        &--left + div > p {
+            max-width: 70ch;
+        }
+    }
+}

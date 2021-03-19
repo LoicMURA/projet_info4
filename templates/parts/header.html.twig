@@ -1,0 +1,34 @@
+{% set card = app.session.get('card') %}
+<header class="nav | shadow-sm p-2">
+    <nav class="w-75 mx-auto d-flex justify-content-between align-items-center">
+        <h1 class="p-0 m-0">
+            <a href="{{ path('index') }}">
+                <img src="{{ asset('image/logo_zyno.png') }}" alt="Logo de zyno" height="70px">
+            </a>
+        </h1>
+        <div class="nav__links d-flex align-items-center">
+            <a class="nav__link | text-dark" href="{{ path('index') }}">Accueil</a>
+            <a class="nav__link | text-dark" href="{{ path('a-propos') }}">Notre histoire</a>
+            <a class="nav__link | text-dark" href="{{ path('product_index') }}">Nos t-shirts</a>
+            <div class="nav__separator"></div>
+            {% if is_granted('ROLE_USER') %}
+                <div class="nav__user--container">
+                    <p class="nav__user">{{ app.user.username }}</p>
+                    <a class="nav__link nav__link--user nav__out" href="{{ path('user_logout')
+                    }}">Déconnexion</a>
+                </div>
+            {% else %}
+                <a class="nav__link nav__link--user" href="{{ path('user_login')
+                }}">Connexion</a>
+            {% endif %}
+            <div>
+                <a class="nav__link nav__link--shop" id="js-card-link" href="{{ path('card_index') }}">
+                    <i class="fas fa-shopping-cart"></i>
+                    {% if card|length > 0 %}
+                        <div id="js-card-token" class="nav__shopCount">{{ card|length }}</div>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Modifier l'article {{ category.name }}{% endblock %}
+
+{% block body %}
+    <a class="btn btn-primary" href="{{ path('admin') }}">Retour à la liste</a>
+    <main class="w-75 mx-auto">
+        <h1>Modifier l'article</h1>
+        {% include 'category/_form.html.twig' %}
+    </main>
+{% endblock %}

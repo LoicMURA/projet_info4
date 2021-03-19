@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% import 'macro/form.html.twig' as appForm %}
+
+{% block title %}{{ parent() }} | S'inscrire{% endblock %}
+
+{% block body %}
+    <main class="w-75 mx-auto">
+        <h2>S'inscire</h2>
+        {{ form_start(form) }}
+
+        {{ appForm.field(form.username, "Nom d'utilisateur", "Votre nom d'utilisateur") }}
+        {{ appForm.field(form.email, "Adresse e-mail", "Votre adresse e-mail") }}
+        {{ appForm.field(form.password, "Mot de passe", "Votre mot de passe") }}
+        {{ appForm.field(form.passwordConfirm, "Confirmation du mot de passe",
+            "Confirmez votre mot de passe") }}
+        {{ form_row(form.agree, {'label': "J'accepte les conditions générales de
+        vente"}) }}
+
+        {{ appForm.submit("S'inscrire") }}
+
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

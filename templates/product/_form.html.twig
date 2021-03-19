@@ -1,0 +1,21 @@
+{% import 'macro/form.html.twig' as appForm %}
+{{ form_start(form) }}
+    {{ appForm.field(form.name, "Nom du produit", "T-shirt bleu ...") }}
+    {{ appForm.field(form.price, "Prix du produit", "12.99") }}
+    <div class="form form-group">
+        {{ appForm.label(form.category, "Catégorie du produit") }}
+        {{ form_widget(form.category) }}
+    </div>
+    {{ appForm.field(form.description, "Description du produit", "Description de votre produit...") }}
+    {% set buttonMessage = 'Ajouter le produit' %}
+    {% if product is defined %}
+        {% set picture = asset('image/'~product.picture) %}
+        {% set buttonMessage = 'Modifier le produit' %}
+        {% if picture matches '{http}' %}
+            {% set picture = product.picture %}
+        {% endif %}
+        <img src="{{ picture }}" alt="image de {{ product.name }}">
+    {% endif %}
+    {{ appForm.field(form.picture, "Image de votre produit") }}
+    {{ appForm.submit(buttonMessage) }}
+{{ form_end(form) }}

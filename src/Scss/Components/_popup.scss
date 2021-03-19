@@ -1,0 +1,52 @@
+.popup {
+    background-color: #d1d1d1;
+    font-size: 1rem;
+    padding: .5rem 2rem;
+    margin: 0 auto;
+    position: fixed;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    &--succes {
+        background-color: #6bb875;
+    }
+
+    &--error {
+        background-color: #ff6868;
+    }
+    animation: 2s ease-out popup;
+    -webkit-animation: 2s ease-out popup;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        top: 2rem;
+    }
+
+    35% {
+        opacity: 100%;
+        top: 6rem;
+    }
+
+    90% {
+        opacity: 100%;
+        top: 6rem;
+    }
+
+    100% {
+        opacity: 0%;
+        top: 2rem;
+    }
+}
+

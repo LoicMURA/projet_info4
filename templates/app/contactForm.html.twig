@@ -1,0 +1,15 @@
+{% import 'macro/form.html.twig' as appForm %}
+
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col">
+            {{ appForm.field(form.lastName, 'Nom', 'Votre nom') }}
+        </div>
+        <div class="col">
+            {{ appForm.field(form.firstName, 'Prénom', 'Votre prénom') }}
+        </div>
+    </div>
+    {{ appForm.field(form.email, 'E-mail', 'Votre adresse email') }}
+    {{ appForm.field(form.message, 'Votre message', 'Le contenu de votre message …') }}
+    {{ appForm.submit('Envoyer') }}
+{{ form_end(form) }}

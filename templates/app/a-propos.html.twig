@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Notre histoire{% endblock title%}
+
+{% block body %}
+    <main class="w-75 mx-auto">
+        <h2 class="article__title">Mais qui est Zyno. ?</h2>
+        <div class="d-flex align-items-start">
+            <div>
+                <h3 class="h4">Quand le prêt-à-porter touche le luxe</h3>
+                <p class="article__text">Jeune marque de prêt à porter, Zyno mise essentiellement sur la qualité de ses produits. L'élégance est le maître mot. Les T-Shirts Zyno offrent un confort incomparable. Pour notre simplicité, nous sommes félicités.</p>
+                <p class="article__text">Née d’un pari fou lancé il y a quelques années par deux grands créateurs du nom de Christian Tomasino et de Nicolas ZINT , la marque “Zyno.” s'impose dans le marché du luxe en s’appuyant sur les innovations technologiques éco-responsables, en utilisant notamment du coton 100% bio.</p>
+            </div>
+            <img class="article__image article__image--right" src="{{ asset
+                ("image/journee-du-bonheur-zyno.jpg")}}" alt="Les t-shirts Zyno définissent l'élégance">
+        </div>
+        <div class="d-flex align-items-center pt-4">
+            <img src="{{ asset("image/t-shirt-zyno-blanc.jpg") }}" alt="La nouvelle
+            collection bonheur viens de sortir !" class="article__image article__image--left">
+            <div>
+                <h3 class="h4">La marque française se développe</h3>
+                <p class="article__text">La France n’ayant pas encore développé la production de coton, nous nous adressons à des fournisseurs fiables et nous cherchons à tout prix à développer cette filière en France; nous nous investissons en cette faveur. De plus, nous privilégions, lorsque cela est possible, des intermédiaires locaux que nous mettons constamment en avant. À travers leur marque, ils ont créé un véritable symbole d’élégance, alliant qualité et simplicité.</p>
+                <p class="article__text">C’est grâce à une équipe d'experts de grands talents composée de grands professionnels de la mode et du prêt-à-porter que nous pouvons vous proposer une qualité de t-shirt incomparable. Nous sommes constamment à la recherche de la perfection et nous travaillons directement avec nos fournisseurs afin de garder une qualité constante.</p>
+            </div>
+        </div>
+    </main>
+{% endblock body %}

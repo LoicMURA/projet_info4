@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Ajout catégorie{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin') }}" class="btn btn-primary">Retour à la liste</a>
+    <main class="mx-auto w-75">
+        <h1>Création d'une catégorie</h1>
+        {{ include('category/_form.html.twig') }}
+    </main>
+{% endblock %}

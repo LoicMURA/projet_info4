@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/homepageb.css") }}">
+{% endblock %}
+
+{% block body %}
+    <main class="hero w-75 mx-auto">
+        <div class="presentation">
+            <p>A l'occasion de la journée internationale du Bonheur, Zyno lance une nouvelle collection, une collection
+                unique de t-shirts évoquant le bonheur avec grande élégance. D'un mot simple brodé sur le t-shirt, partagez
+                le bonheur autour de vous !</p>
+            <img src="{{ asset("image/homme.jpg") }}" alt="">
+        </div>
+
+        <img class="bandeau" src="{{ asset("image/bandeau.jpg") }}" alt="">
+
+        <div class="tshirts d-flex align-items-center">
+            <img src="{{ asset("image/mockup.jpg") }}" alt="">
+            <p>La simplicité et l'originalité de nos t-shirts vous démarqueront avec certitude! Ces derniers sont déclinés
+                sous différentes couleurs très gaies et très joyeuses ! Vous trouverez votre bonheur et vous le partagerez
+                avec élégance et confort !</p>
+        </div>
+        <p>N'attendez plus, le bonheur est à portée de main. Découvrez dès maintenant la nouvelle collection de t-shirts
+            Bonheur signée de la maison Zyno. </p>
+        <div class="newsletter d-flex">
+            <img src="{{ asset("image/zyno.jpg") }}" alt="">
+            <div class="inscription">
+                <p>INSCRIPTION A LA NEWSETTER</p>
+                <a href="#">S'inscrire à la newsletter</a>
+            </div>
+        </div>
+        <p>Avec Zyno, portez le bonheur et diffusez le autour de vous !</p>
+    </main>
+{% endblock %}

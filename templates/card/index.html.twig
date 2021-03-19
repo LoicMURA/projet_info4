@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Panier{% endblock %}
+
+{% block body %}
+    <main class="mx-auto w-75">
+        <h2>Bienvenu dans votre panier !</h2>
+        {% if card|length > 0 %}
+            <table class="table" id="js-card-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" >Article</th>
+                        <th class="table__center" scope="col" >Quantité</th>
+                        <th class="table__center" scope="col" >Prix unitaire</th>
+                        <th class="table__center" scope="col" >Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for index, row in card %}
+                    <tr>
+                        {% dump(row) %}
+                        <th scope="raw">{{ index + 1 }}</th>
+                        <td>{{ row.product.name }}</td>
+                        <td class="table__center">{{ row.quantity }}</td>
+                        <td class="table__center">{{ row.product.price|price('€') }}</td>
+                        <td class="table__center"><a href="{{ path('card_remove', {"id": row.product.id}) }}"
+                                class="js-card-remove btn btn-danger"><i class="fas
+                                fa-trash"></i></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="3">Total :</th>
+                        <td class="table__center">{{ total|price('€') }}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="d-flex justify-content-end" id="js-commande-btn">
+                <a href="#" class="btn btn-primary disabled">Commander</a>
+            </div>
+        {% else %}
+            <p id="js-card-empty">Votre panier est vide!</p>
+        {% endif %}
+    </main>
+{% endblock %}

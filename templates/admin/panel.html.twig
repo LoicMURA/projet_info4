@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Panneau d'administration{% endblock %}
+
+{% block body %}
+    <main class="mx-auto w-75">
+        <h2>Panneau d'administration</h2>
+        <section>
+            <h3>Produits</h3>
+            <a href="{{ path('product_new') }}" class="btn btn-primary">Ajouter un produit</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom du produit</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <th scope="row">
+                            <a href="{{ path('product_show', {"id": product.id}) }}">{{ product.id }}</a>
+                        </th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description|u.truncate(150, '…') }}</td>
+                        <td>{{ product.price|price('€') }}</td>
+                        <td class="d-flex flex-column justify-content-center">
+                            <a href="{{ path('product_edit', {"id": product.id}) }}" class="btn
+                            btn-primary">Modifier</a>
+                            <a id="{{ product.id }}" class="js-delete-product btn btn-danger
+                            mt-1">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>Catégories</h3>
+            <a href="{{ path('category_new') }}" class="btn btn-primary">Ajouter une catégorie</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom de la catégorie</th>
+                    <th scope="col">Description</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <th scope="row">{{ category.id }}</th>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.description|u.truncate(150, '…') }}</td>
+                        <td class="d-flex flex-column justify-content-center">
+                            <a href="{{ path('category_edit', {"id": category.id}) }}" class="btn
+                            btn-primary">Modifier</a>
+                            <a id="{{ category.id }}" class="js-delete-category btn btn-danger mt-1">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+{% endblock %}

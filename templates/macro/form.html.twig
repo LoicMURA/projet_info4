@@ -1,0 +1,27 @@
+{% macro label(element, label, class = "form__label") %}
+    {{ form_label(element, label, {
+        'label_attr': {
+            'class': class
+        }
+    }) }}
+{% endmacro %}
+
+{% macro input(element, placeholder = '', class = "form__input") %}
+    {{ form_widget(element, {
+        "attr": {
+            "placeholder": placeholder,
+            "class": class
+        }
+    }) }}
+{% endmacro %}
+
+{% macro field(element, label, placeholder = '') %}
+    <div class="form-group">
+        {{ _self.label(element, label, 'form__label') }}
+        {{ _self.input(element, placeholder, 'form__input') }}
+    </div>
+{% endmacro %}
+
+{% macro submit(label = "submit", id = "js-form-submit") %}
+    <button type="submit" id="{{ id }}" class="btn btn-primary mb-2">{{ label }}</button>
+{% endmacro %}

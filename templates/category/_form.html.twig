@@ -1,0 +1,17 @@
+{% import 'macro/form.html.twig' as appForm %}
+
+{{ form_start(form) }}
+    {{ appForm.field(form.name, 'Nom de la catégorie', 'Le nom de votre catégorie') }}
+    {{ appForm.field(form.description, 'Description de la catégorie', 'La description de votre catégorie') }}
+    {% set message = 'Ajouter la catégorie' %}
+    {% if category is defined %}
+        {% set picture = asset('image/'~category.picture) %}
+        {% set message = 'Modifier la catégorie' %}
+        {% if picture matches '{http}' %}
+            {% set picture = category.picture %}
+        {% endif %}
+        <img src="{{ picture }}" alt="Image de {{ category.name }}">
+    {% endif %}
+    {{ appForm.field(form.picture, 'Image de la catégorie') }}
+    {{ appForm.submit(message)}}
+{{ form_end(form) }}

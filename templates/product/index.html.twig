@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Produits{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="wrapper w-75 mx-auto pt-4">
+            <h1 class="pb-2">Nos t-shirts en coton bio</h1>
+            <div class="card-deck d-flex justify-content-between">
+                {% for product in products %}
+                    {% set link = asset('image/'~product.picture) %}
+                    {% if link matches '{http(s)?://}' %}
+                        {% set link = product.picture %}
+                    {% endif %}
+                    <div class="card" href="{{ path('product_show', {"id": product.id}) }}">
+                        <img src="{{ link }}" alt="Image de {{ product
+                        .name
+                         }}"
+                             class="card-image-top">
+                        <div class="card-body">
+                            <h2 class="card-title h4">{{ product.name }}</h2>
+                            <p class="card-text"><span class="text-muted">{{ product
+                                    .category.name|upper }}</span></p>
+                            <p class="card-text">{{ product.description|u.truncate(150, '...') }}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <p class="card__price">{{ product.price|price('€') }}</p>
+                            <a href="{{ path('card_add', {"id": product.id}) }}" class="js-card-btn btn btn-primary">Ajouter au panier</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="error">Aucun résultat n'a été trouvé</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {% do products.setPageRange(7) %}
+            {{ knp_pagination_render(products, 'parts/pagination.html.twig') }}
+        </div>
+    </main>
+{% endblock %}

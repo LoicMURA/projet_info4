@@ -1,0 +1,19 @@
+.footer {
+    $height: 2.5rem;
+
+    height: $height;
+    background-color: $dark-blue;
+    font-size: .85rem;
+
+    &__link {
+        margin: 0 .75rem;
+        color: $white;
+        line-height: $height;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            color: $white;
+        }
+    }
+}

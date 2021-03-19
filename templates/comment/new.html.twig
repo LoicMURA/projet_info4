@@ -1,0 +1,7 @@
+{% import 'macro/form.html.twig' as appForm %}
+
+{{ form_start(form) }}
+    {{ appForm.field(form.title, "Titre du commentaire", "Le titre de votre commentaire") }}
+    {{ appForm.field(form.content, "Commentaire", "Votre commentaire") }}
+    {{ appForm.submit("Poster le commentaire", "js-comment-add") }}
+{{ form_end(form) }}

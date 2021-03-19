@@ -1,0 +1,62 @@
+.card {
+    $radius: 1rem;
+    $width: 32%;
+
+    width: $width;
+    margin-bottom: 2rem;
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    cursor: pointer;
+
+    &-image-top {
+        max-width: 100%;
+        height: auto;
+        border-radius: $radius;
+        -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+        -o-border-radius: $radius;
+        border-end-end-radius: 0;
+        border-end-start-radius: 0;
+    }
+
+    &-deck {
+        flex-wrap: wrap;
+    }
+
+    &:hover {
+        box-shadow: 2px 2px 15px rgba($grey, .2);
+    }
+
+    &__price {
+        font-weight: 700;
+        margin: 0;
+        line-height: 100%;
+    }
+
+    &--article {
+        width: 100%;
+        border: none;
+        cursor: default;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &--comment {
+        width: 100%;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}

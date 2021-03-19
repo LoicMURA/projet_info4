@@ -1,0 +1,33 @@
+body {
+    font-family: $f-sans !important;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    font-family: $f-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bolder;
+}
+
+header {
+    position: relative;
+    z-index: 10;
+}
+
+main {
+    flex-grow: 1;
+    margin-top: 2rem;
+    &.hero {
+        margin-top: unset;
+    }
+}
+
+a {
+    color: $blue;
+}
+
+p, h2, h3, h4, h5, h6 {
+    max-width: 80ch;
+}

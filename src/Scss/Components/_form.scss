@@ -1,0 +1,11 @@
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.invalid-feedback {
+    $red: #dc3545;
+    color: $red;
+    .badge-danger {
+        background-color: $red;
+    }
+}
