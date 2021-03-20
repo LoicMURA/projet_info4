@@ -43,6 +43,18 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
+        $user = new user();
+
+        $role = 'ROLE_ADMIN';
+        $password = $this->encoder->encodePassword($user, 'dc67');
+
+        $user->setUsername('cazier')
+            ->setEmail($faker->email)
+            ->setPassword($password)
+            ->setRole($role);
+
+        $manager->persist($user);
+
         for ($i = 1; $i <= 8; $i++) {
             $category = new Category();
 
