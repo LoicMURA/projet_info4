@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
         $user = new user();
 
         $role = 'ROLE_ADMIN';
-        $password = $this->encoder->encodePassword($user, 'dc67');
+        $password = $this->encoder->encodePassword($user, 'mmi2020!');
 
         $user->setUsername('cazier')
             ->setEmail($faker->email)
